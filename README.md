@@ -14,7 +14,7 @@ Users register and log in through a manual session-based auth system — there i
 ## Project Structure
 
 ```
-project-6-django-gift-registry/
+gift-registry/
 ├── manage.py
 ├── pyproject.toml
 ├── poetry.lock

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Other Users Gifts{% endblock %}
+
+{% block content %}
+    <h2>Gifts for {{ other_user.username }}</h2>
+    <ul>
+        {% for gift in gifts %}
+            <li>{{ gift.name }}</li>
+        {% endfor %}
+    </ul>
+
+    {# Add a link to go back to the Users page #}
+    <p><a href="{% url 'users' %}">Back to Users</a></p>
+{% endblock %}
+

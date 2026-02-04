@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Gifts{% endblock %}
+
+{% block content %}
+    <h2>Gifts</h2>
+
+    {% if user %}
+        <p>Gifts for {{ user.username }}:</p>
+        <ul>
+            {% for gift in gifts %}
+                <li>{{ gift.name }}</li>
+            {% endfor %}
+        </ul>
+
+        <form method="post" action="{% url 'gifts' %}">
+            {% csrf_token %}
+            <label for="gift_name">Add a new gift:</label>
+            <input type="text" name="gift_name" required>
+            <input type="submit" value="Add Gift">
+        </form>
+    {% else %}
+        <p style="color: red;">Login is required.</p>
+        <p>Not registered yet? <a href="{% url 'registration' %}">Register here</a></p>
+        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    {% endif %}
+{% endblock %}
